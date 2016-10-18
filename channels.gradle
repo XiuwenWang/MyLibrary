@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+// load properties
+Properties properties = new Properties()
+properties.load(project.rootProject.file('channels.properties').newDataInputStream())
+String channelDefault = properties.getProperty('channel.default')
+String channleList = properties.getProperty('channel.list')
+String[] channelArray = channleList.split(',')
+
+//获取产品的名字
+def getProductName() {
+    return "app"
+}
+//获取当前系统的时间
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd-hh-mm", TimeZone.getTimeZone("GMT+08:00"))
+}
+
+android {
+    defaultConfig {
+        // dex突破65535的限制
+        multiDexEnabled true
+        // 默认是umeng的渠道
+        manifestPlaceholders = [CHANNEL_VALUE: channelDefault]
+    }
+
+    productFlavors {
+        for (int i = 0 ; i < channelArray.size(); i++) {
+            def channel = channelArray[i]
+            "${channel}"{
+                manifestPlaceholders = [CHANNEL_VALUE: channel]
+            }
+        }
+    }
+    //修改生成的apk名字，格式为 app名_版本号_打包时间_渠道名_release.apk
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def oldFile = output.outputFile
+            if (variant.buildType.name.equals('release')) {
+                def releaseApkName = getProductName() + "_v${defaultConfig.versionName}_${releaseTime()}_" + variant.productFlavors[0].name + '_release.apk'
+                output.outputFile = new File(oldFile.parent, releaseApkName)
+            }
+        }
+    }
+}
+
+

@@ -1,0 +1,34 @@
+<resources>
+    <style name="AppBaseTheme" parent="android:Theme.Light"/>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme"/>
+
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <!-- PopupWindow底部弹窗的进出动画 -->
+    <style name="AlertAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+
+    <!-- PopupWindow中心弹窗的进出动画 -->
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/fade_in_center</item>
+        <item name="android:windowExitAnimation">@anim/fade_out_center</item>
+    </style>
+
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowNoTitle">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowBackground">@drawable/shape_progress_dialog_bg</item><!--无标题-->
+        <item name="android:windowIsFloating">true</item><!--背景透明-->
+        <item name="android:windowContentOverlay">@null</item><!--模糊-->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+</resources>
