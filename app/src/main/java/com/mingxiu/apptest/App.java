@@ -43,6 +43,5 @@ public class App extends BaseApp {
         configOkHttpFinal(false);
         LogUtils.d("------>");
 
-
     }
 }
