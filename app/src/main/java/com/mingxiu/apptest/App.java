@@ -44,6 +44,5 @@ public class App extends BaseApp {
         LogUtils.d("------>");
 
 
-
     }
 }
