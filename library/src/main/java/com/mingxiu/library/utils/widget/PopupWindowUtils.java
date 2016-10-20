@@ -18,8 +18,6 @@ import com.mingxiu.library.utils.PixelUtils;
 
 import java.util.List;
 
-import static com.mingxiu.library.utils.DeviceUtils.getScreenPix;
-
 
 /**
  * 版权所有：
@@ -141,7 +139,7 @@ public class PopupWindowUtils {
     public void showBottomPopupWindow(final Activity context, List<PopuItemBean> data, boolean isOutsideTouchable, final ShowBottomPopupWindowListener listener) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.popuwindow_bottom, null);           //布局文件
         final PopupWindow popupWindow = new PopupWindow(inflate,                                         //创建一个popupWindow
-                getScreenPix(context).widthPixels - PixelUtils.dp2px(18),                    //宽度
+                DeviceUtils.getScreenPix(context).widthPixels - PixelUtils.dp2px(18),                    //宽度
                 PixelUtils.dp2px(9 + 44 + 9 + ((44 + 1) * (data == null ? 0 : data.size())) - 1), true); //高度
         TextView tvItemCancel = (TextView) inflate.findViewById(R.id.tv_cancel);                         //取消按键
         tvItemCancel.setOnClickListener(new View.OnClickListener() {

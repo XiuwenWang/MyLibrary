@@ -32,6 +32,16 @@ public class AdapterBean {
     private boolean isShowDel;                  //是否删除
     private boolean isShowSelect;               //是否显示选择
     private boolean isShowSearchResult;         //是否显示搜索结果
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
     public boolean isShowSearchResult() {
         return isShowSearchResult;

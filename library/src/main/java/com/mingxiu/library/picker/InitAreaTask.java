@@ -3,7 +3,6 @@ package com.mingxiu.library.picker;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.AsyncTask;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -31,11 +30,11 @@ public class InitAreaTask extends AsyncTask<Integer, Integer, Boolean> {
     Activity mActivity;
     private List<Province> provinces = new ArrayList<>();
     Dialog progressDialog;
-    TextView etDistrictSelect;
+    CityPickerCallBack cityPickerCallBack;
 
-    public InitAreaTask(Activity mActivity,TextView etDistrictSelect) {
+    public InitAreaTask(Activity mActivity, CityPickerCallBack cityPickerCallBack) {
         this.mActivity = mActivity;
-        this.etDistrictSelect = etDistrictSelect;
+        this.cityPickerCallBack = cityPickerCallBack;
         progressDialog = Util.createLoadingDialog(mActivity, "请稍等...", true, 0);
     }
 
@@ -49,13 +48,13 @@ public class InitAreaTask extends AsyncTask<Integer, Integer, Boolean> {
     protected void onPostExecute(Boolean result) {
         progressDialog.dismiss();
         if (provinces.size() > 0) {
-            showAddressDialog(mActivity,etDistrictSelect);
+            showAddressDialog(mActivity);
         } else {
             Toast.makeText(mActivity, "数据初始化失败", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void showAddressDialog(Activity activity, final TextView etDistrictSelect) {
+    private void showAddressDialog(Activity activity) {
         CityPickerDialog.showCityPickerDialog(activity, provinces, new CityPickerDialog.onCityPickedListener() {
 
             @Override
@@ -64,7 +63,9 @@ public class InitAreaTask extends AsyncTask<Integer, Integer, Boolean> {
                 address.append(selectProvince != null ? selectProvince.getAreaName() : "")
                         .append(selectCity != null ? selectCity.getAreaName() : "")
                         .append(selectCounty != null && selectCounty.getAreaName() != null ? selectCounty.getAreaName() : "");
-                etDistrictSelect.setText(address);
+                if (cityPickerCallBack != null) {
+                    cityPickerCallBack.onFinish(address.toString());
+                }
             }
 
             @Override
@@ -100,6 +101,10 @@ public class InitAreaTask extends AsyncTask<Integer, Integer, Boolean> {
             }
         }
         return false;
+    }
+
+    public interface CityPickerCallBack{
+        void onFinish(String address);
     }
 
 

@@ -16,8 +16,8 @@ import java.util.List;
  * 描述：简单封装的WenAdapter
  */
 public abstract class LvAdapter<T> extends BaseAdapter {
-    public List<T> data;
-    public Context context;
+    protected List<T> data;
+    protected Context context;
 
     public LvAdapter(List<T> data, Context context) {
         this.data = data;

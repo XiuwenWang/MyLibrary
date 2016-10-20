@@ -1,7 +1,4 @@
-package com.mingxiu.apptest;
-
-import com.apkfuns.logutils.LogUtils;
-import com.mingxiu.library.BaseApp;
+package com.mingxiu.library.base.baseAdapter;
 
 /**
  * ----------BigGod be here!----------/
@@ -26,7 +23,7 @@ import com.mingxiu.library.BaseApp;
  * ━━━━━━神兽出没━━━━━━
  * 版权所有：个人
  * 作者：Created by a.wen.
- * 创建时间：2016/10/18
+ * 创建时间：2016/10/19
  * Email：13872829574@qq.com
  * 内容描述：
  * 修改人：a.wen
@@ -35,12 +32,28 @@ import com.mingxiu.library.BaseApp;
  * 修订历史：1.0
  */
 
-public class App extends BaseApp {
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        configOkHttpFinal(false);
-        LogUtils.d("------>");
-    }
+public interface AdapterFactory {
+//    /**
+//     * 获得布局文件
+//     *
+//     * @return
+//     */
+//      int getLayout(int viewType);
+//
+//    /**
+//     * 创建一个ViewHolder
+//     *
+//     * @param convertView View
+//     * @return
+//     */
+//      V onCreateViewHolder(View convertView);
+//
+//    /**
+//     * 绑定ViewHolder
+//     *
+//     * @param holder   ViewHolder
+//     * @param position 位置
+//     */
+//    @Override
+//    void onBindViewHolder(V holder, int position);
 }

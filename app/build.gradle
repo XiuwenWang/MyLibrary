@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
-//将channels.gradle下载到本地引入
-apply from: "../channels.gradle"
+apply plugin: 'android-apt'
+apply from: "../channels.gradle"//将channels.gradle下载到本地引入
+
 android {
     signingConfigs {
         release {
@@ -30,12 +31,21 @@ android {
         }
         debug { //调试
             minifyEnabled false              //启用混淆代码的功能
-            zipAlignEnabled true             //压缩对齐生成的apk包
-            shrinkResources true             //移除无用的资源文件
+//            zipAlignEnabled true             //压缩对齐生成的apk包
+//            shrinkResources true             //移除无用的资源文件
             multiDexEnabled true             //启用multidex的支持
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'//指定混淆规则，需要压缩优化的混淆要把proguard-android.txt换成proguard-android.txt
 //            signingConfig signingConfigs.release            //指定打release包的签名
         }
+    }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 
@@ -46,4 +56,8 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile project(':library')
+//    //黄油刀
+//    compile 'com.jakewharton:butterknife:8.2.1'
+//    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+
 }

@@ -1,7 +1,9 @@
 package com.mingxiu.apptest;
 
-import com.apkfuns.logutils.LogUtils;
-import com.mingxiu.library.BaseApp;
+import android.content.Context;
+import android.view.View;
+
+import java.util.List;
 
 /**
  * ----------BigGod be here!----------/
@@ -26,7 +28,7 @@ import com.mingxiu.library.BaseApp;
  * ━━━━━━神兽出没━━━━━━
  * 版权所有：个人
  * 作者：Created by a.wen.
- * 创建时间：2016/10/18
+ * 创建时间：2016/10/19
  * Email：13872829574@qq.com
  * 内容描述：
  * 修改人：a.wen
@@ -35,12 +37,28 @@ import com.mingxiu.library.BaseApp;
  * 修订历史：1.0
  */
 
-public class App extends BaseApp {
+public class RvAdapterT extends com.mingxiu.library.base.baseAdapter.RvAdapter<String> {
+
+    public RvAdapterT(List<String> data, Context context) {
+        super(data, context);
+    }
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-        configOkHttpFinal(false);
-        LogUtils.d("------>");
+    protected int getLayout(int viewType) {
+        return R.layout.rv_adapter;
+    }
+
+    @Override
+    public void onBindViewHolder(com.mingxiu.library.base.baseAdapter.RvAdapter.ViewHolder holder, final int position) {
+        holder.setText(R.id.T_1, data.get(position))
+                .setText(R.id.T_1, data.get(position))
+                .setImage(R.id.I_1, data.get(position))
+                .setImage(R.id.I_1, data.get(position))
+                .setOnClickListener(R.id.T_2, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        App.getInstance().showToast(data.get(position));
+                    }
+                });
     }
 }

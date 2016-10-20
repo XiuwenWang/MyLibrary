@@ -37,19 +37,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <com.yang.picker.wheel.WheelView
+        <com.mingxiu.library.picker.wheel.WheelView
             android:id="@+id/provinceWheel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <com.yang.picker.wheel.WheelView
+        <com.mingxiu.library.picker.wheel.WheelView
             android:id="@+id/citiesWheel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <com.yang.picker.wheel.WheelView
+        <com.mingxiu.library.picker.wheel.WheelView
             android:id="@+id/countiesWheel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

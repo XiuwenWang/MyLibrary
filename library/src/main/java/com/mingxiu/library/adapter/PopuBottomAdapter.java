@@ -11,8 +11,6 @@ import com.mingxiu.library.bean.PopuItemBean;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 /**

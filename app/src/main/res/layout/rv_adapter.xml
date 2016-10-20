@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/T_1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="昨天"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/I_1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/T_2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="证明"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/I_2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher"/>
+
+</LinearLayout>

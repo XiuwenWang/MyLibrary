@@ -20,11 +20,11 @@ import java.util.List;
  * 创建时间：2016/6/30
  * Email：13872829574@qq.com
  * 修订历史：1.0
- * 描述：封装的一个简单易用的AppBaseAdapter
+ * 描述：封装的一个简单易用的ApBaseAdapter
  */
 public abstract class AppBaseAdapter<T> extends BaseAdapter {
-    public List<T> data;
-    public Context context;
+    protected List<T> data;
+    protected Context context;
 
     public AppBaseAdapter(List<T> data, Context context) {
         this.data = data;
@@ -38,7 +38,7 @@ public abstract class AppBaseAdapter<T> extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return data.get(position);
+        return data != null ? data.get(position) : null;
     }
 
     @Override
@@ -49,82 +49,82 @@ public abstract class AppBaseAdapter<T> extends BaseAdapter {
     //入口
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return createViewHolder(position, convertView, parent).getItemView();
+        ViewHolder holder;
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(getLayout(), parent, false);
+            holder = new ViewHolder(context, convertView);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+        setContent(holder, data.get(position), position, convertView, parent);
+        return convertView;
     }
 
-    public abstract ViewHolder createViewHolder(int position, View convertView, ViewGroup parent);
+    /**
+     * 获得布局文件
+     *
+     * @return
+     */
+    protected abstract int getLayout();
+
+    /**
+     * 填充内容
+     *
+     * @param position    int
+     * @param convertView View
+     * @param parent      ViewGroup
+     * @param holder      V
+     * @param itemBean    T
+     */
+    protected abstract void setContent(ViewHolder holder, T itemBean, int position, View convertView, ViewGroup parent);
+
 
     public static class ViewHolder {
         private View convertView;
         private HashMap<Integer, View> views;
         private Context context;
 
-        //第四步
-        ViewHolder(Context context, View convertView) {
+        ViewHolder(Context context, View convertView) {//第1步
             this.convertView = convertView;
-            //保存View的map
-            views = new HashMap<>();
+            views = new HashMap<>();//保存View的map
             this.context = context;
-            //设置tab
-            convertView.setTag(this);
         }
 
-        //第三步
-        public static ViewHolder getHolder(View convertView, Context context, int layoutId, ViewGroup parent) {
-            if (convertView == null) {
-                LayoutInflater inflater = LayoutInflater.from(context);
-                convertView = inflater.inflate(layoutId, parent, false);
-                return new ViewHolder(context, convertView);
-            } else {
-                return (ViewHolder) convertView.getTag();
-            }
-        }
-
-        //第六步
         public <T extends View> T findById(int id) {
             View view = views.get(id);
             if (view == null) {
                 view = convertView.findViewById(id);
                 views.put(id, view);
-
             } else {
                 view = views.get(id);
             }
             return (T) view;
         }
 
-        //第五步
         public void setText(int id, String txt) {
             TextView tv = findById(id);
             tv.setText(txt);
         }
 
-        //第五步
         public void setOnClickListener(int id, View.OnClickListener listener) {
             View view = findById(id);
             view.setOnClickListener(listener);
         }
 
-        //第五步
         public void setTvBackground(int id, Drawable txt) {
             TextView tv = findById(id);
             tv.setBackgroundDrawable(txt);
         }
 
-        //第五步
         public void setImage(int id, String url) {
             ImageView img = findById(id);
-            ImageLoader.getInstance().displayCircleImage(context,url, img);
+            ImageLoader.getInstance().displayCircleImage(context, url, img);
         }
 
-        //第五步
         public void setImage(int id, int url) {
             ImageView img = findById(id);
-            ImageLoader.getInstance().displayCircleImage(context,url, img);
-        }
-
-        public View getItemView() {
-            return convertView;
+            ImageLoader.getInstance().displayCircleImage(context, url, img);
         }
     }
 }

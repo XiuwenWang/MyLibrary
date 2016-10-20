@@ -34,7 +34,7 @@ public class DialogUtils {
      * @param imageId
      * @return
      */
-    public static Dialog createLoadingDialog(Context context, String msg, boolean isAnimation, int imageId) {
+    public static Dialog createLoadingDialog(Context context, String msg, boolean isAnimation, int imageId,boolean isCancel) {
 
         LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(R.layout.loading_dialog, null);// 得到加载view
@@ -62,7 +62,7 @@ public class DialogUtils {
 
         Dialog loadingDialog = new Dialog(context, R.style.loading_dialog);// 创建自定义样式dialog
 
-        loadingDialog.setCancelable(false);// 不可以用“返回键”取消
+        loadingDialog.setCancelable(isCancel);// 不可以用“返回键”取消
         loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));// 设置布局
         return loadingDialog;
 
@@ -76,17 +76,27 @@ public class DialogUtils {
      *
      * @param context
      */
+    public static void showLoadingDialog(Context context,boolean isCancel) {
+        showLoadingDialog(context, "请稍等...", true, 0, isCancel);
+    }
+
     public static void showLoadingDialog(Context context) {
-        showLoadingDialog(context, "请稍等...", true, 0);
+        showLoadingDialog(context, "请稍等...", true);
     }
 
     public static void showLoadingDialog(Context context, String msg) {
-        showLoadingDialog(context, msg, true, 0);
+        showLoadingDialog(context, msg, true);
+    }
+
+
+
+    public static void showLoadingDialog(Context context, String msg, boolean isAnimation,boolean isCancel) {
+        showLoadingDialog(context, msg, isAnimation, 0,isCancel);
     }
 
 
     public static void showLoadingDialog(Context context, String msg, boolean isAnimation) {
-        showLoadingDialog(context, msg, isAnimation, 0);
+        showLoadingDialog(context, msg, isAnimation, 0,true);
     }
 
     /**
@@ -97,13 +107,13 @@ public class DialogUtils {
      * @param isAnimation
      * @param imageId
      */
-    public static void showLoadingDialog(Context context, String msg, boolean isAnimation, int imageId) {
+    public static void showLoadingDialog(Context context, String msg, boolean isAnimation, int imageId,boolean isCancel) {
         if (loadingDialog == null) {
-            loadingDialog = createLoadingDialog(context, msg, isAnimation, imageId);
+            loadingDialog = createLoadingDialog(context, msg, isAnimation, imageId,isCancel);
         } else {
             loadingDialog.dismiss();
             loadingDialog = null;
-            loadingDialog = createLoadingDialog(context, msg, isAnimation, imageId);
+            loadingDialog = createLoadingDialog(context, msg, isAnimation, imageId,isCancel);
         }
         if (loadingDialog != null) {
             loadingDialog.show();

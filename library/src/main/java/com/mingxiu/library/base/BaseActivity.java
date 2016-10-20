@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.mingxiu.library.utils.AppManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * ----------BigGod be here!----------/
  * ***┏┓******┏┓*********
@@ -48,6 +51,11 @@ public class BaseActivity extends AppCompatActivity {
     protected void handleIntent(Intent intent) {
     }
 
+
+    protected <T extends List> T getData(){
+        return (T) new ArrayList();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         baseAct = this;
@@ -57,7 +65,6 @@ public class BaseActivity extends AppCompatActivity {
         }
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//设置竖屏
         AppManager.getAppManager().addActivity(this);
-
     }
 
     @Override

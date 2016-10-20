@@ -28,6 +28,7 @@ public class BaseApp extends MultiDexApplication {
     public static BaseApp getInstance() {
         return app;
     }
+
     protected void setDebug(boolean debug) {
         isDebug = debug;
     }
@@ -60,7 +61,6 @@ public class BaseApp extends MultiDexApplication {
         super.onCreate();
         app = this;
         LogUtils.d("BaseApp =====>onCreate");
-
     }
 
 

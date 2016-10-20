@@ -54,15 +54,6 @@ public abstract class LvBaseAdapter<T, V> extends BaseAdapter {
         this.mAdapterBean = new AdapterBean();
     }
 
-    /**
-     * 当ListView数据发生变化时,调用此方法来更新ListView
-     *
-     * @param data
-     */
-    public void updateListView(List<T> data) {
-        notifyDataSetChanged();
-    }
-
     @Override
     public int getCount() {
         return data != null ? data.size() : 0;

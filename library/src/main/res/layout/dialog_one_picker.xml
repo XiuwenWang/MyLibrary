@@ -32,7 +32,7 @@
             android:textSize="18sp" />
     </RelativeLayout>
 
-    <com.yang.picker.wheel.WheelView
+    <com.mingxiu.library.picker.wheel.WheelView
         android:id="@+id/wheelView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

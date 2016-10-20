@@ -1,4 +1,4 @@
-package com.mingxiu.library.base.baseAdapter;
+package com.mingxiu.apptest;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -61,7 +61,6 @@ public abstract class RvBaseAdapter<T, V extends RecyclerView.ViewHolder> extend
     @Override
     public V onCreateViewHolder(ViewGroup parent, int viewType) {
         return onCreateViewHolder(LayoutInflater.from(context).inflate(getLayout(viewType), null));
-
     }
     /**
      * 获得布局文件
