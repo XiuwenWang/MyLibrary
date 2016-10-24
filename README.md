@@ -118,12 +118,14 @@
  - ###PopupWindowUtils 模仿ios 简单选择样式 底部弹出选择样式
  ![中间简单选择PopupWindow](simple_select.png)
 
- ![底部弹出选择PopupWindow](bottom_select.png)
+ <br>![底部弹出选择PopupWindow](bottom_select.png)
 
- - ###BaseApp 封装基类 app
- - ###BaseActivity 封装基类 activity
- - ###BaseFragment 封装基类 fragment
+ ###- BaseApp 封装基类 app
+ 
+ ###- BaseActivity 封装基类 activity
+ 
+ ###- BaseFragment 封装基类 fragment
 
 
-- ##Uitils目录地下工具类 一些常用工具
+ ##- Uitils目录地下工具类 一些常用工具
 
