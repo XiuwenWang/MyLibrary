@@ -12,11 +12,7 @@ import android.widget.TextView;
 
 import com.apkfuns.logutils.LogUtils;
 import com.mingxiu.library.base.BaseActivity;
-import com.mingxiu.library.bean.BaseBean;
 import com.mingxiu.library.bean.PopuItemBean;
-import com.mingxiu.library.http.MxHttpRequest;
-import com.mingxiu.library.http.Params;
-import com.mingxiu.library.http.callback.BaseHttpRequestCallback;
 import com.mingxiu.library.picker.InitAreaTask;
 import com.mingxiu.library.utils.widget.DialogUtils;
 import com.mingxiu.library.utils.widget.PopupWindowUtils;
@@ -53,20 +49,15 @@ public class MainActivity extends BaseActivity {
     public void initView() {
         super.initView();
 
-        Params params = new Params();
-        params.add("key","value");
-        MxHttpRequest.get("url", params, new BaseHttpRequestCallback<BaseBean>() {//打一个参数baseUrl,第二个参数拼接请求参数，第三个参数请求结果回调，传入泛型直接解析出来对象
-
+        new InitAreaTask(this, new InitAreaTask.CityPickerCallBack() {
             @Override
-            public void onSuccess(BaseBean baseBean) {
-                LogUtils.d("请求成功");
-            }
+            public void onFinish(String address) {
+                LogUtils.d("返回的地址字符串");
 
-            @Override
-            public void onFailure(int errorCode, String msg) {
-                LogUtils.d("请求失败");
             }
-        });
+        }).execute();
+
+
 //        LogUtils.d("initView");
 //        data.add("1");
 //        data.add("2");
