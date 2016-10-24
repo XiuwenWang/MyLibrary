@@ -1,8 +1,7 @@
 ![工匠精神](smartisan.png)
 # library
 ***
-- 网络请求操作类 MxHttpRequest
-get请求，post请求，文件下载等等
+###- 网络请求操作类 MxHttpRequest get请求，post请求，文件下载等等
 ```
  Params params = new Params();
         params.add("key","value");
@@ -19,7 +18,7 @@ get请求，post请求，文件下载等等
             }
         });
  ```
- - 图片加载工具类 ImageLoader
+ - ###图片加载工具类 ImageLoader
 基于Glide 实现的，实现加载圆形图片等
 
  ```
@@ -28,13 +27,10 @@ get请求，post请求，文件下载等等
  //加载圆形图片
  ImageLoader.getInstance().displayCircleImage("context上下文","图片链接url",imgageView);
  ```
- - BaseApp 封装基类 app
- - BaseActivity 封装基类 activity
- - BaseFragment 封装基类 fragment
 
- - BaseAdapter 封装一些常用的 Adapter
+ - ###BaseAdapter 封装一些常用的 Adapter
    1.  RecyclerView.Adapter 封装的
-   - RvSimpleAdapter 使用方法
+   - ####RvSimpleAdapter 使用方法
    ```
    public class RvAdapter extends RvSimpleAdapter<String> {
 
@@ -63,7 +59,7 @@ get请求，post请求，文件下载等等
    }
 
    ```
-   - RvKnifeAdapter 使用方法
+   - ####RvKnifeAdapter 使用方法
    ```
    public class RvAdapter extends RvKnifeAdapter<String, RvKnifeAdapter.ViewHolder> {
 
@@ -104,7 +100,7 @@ get请求，post请求，文件下载等等
    2.  BaseAdapter 封装的
    使用方法类似RecyclerView.Adapter上面的
 
- - picker 模仿ios 的省市县三级联动
+ - ###picker 模仿ios 的省市县三级联动
  ```
  new InitAreaTask(this, new InitAreaTask.CityPickerCallBack() {
              @Override
@@ -116,14 +112,18 @@ get请求，post请求，文件下载等等
  ```
  ![地区选择](picker.png)
 
- - DialogUtils 模仿ios 的加载样式
- ![DialogUtils](loading.png)
+ - ###DialogUtils 模仿ios 的加载样式
+ <br>![DialogUtils](loading.png)
 
- - PopupWindowUtils 模仿ios 简单选择样式 底部弹出选择样式
+ - ###PopupWindowUtils 模仿ios 简单选择样式 底部弹出选择样式
  ![中间简单选择PopupWindow](simple_select.png)
 
  ![底部弹出选择PopupWindow](bottom_select.png)
 
+ - ###BaseApp 封装基类 app
+ - ###BaseActivity 封装基类 activity
+ - ###BaseFragment 封装基类 fragment
 
-- Uitils目录地下工具类 一些常用工具
+
+- ##Uitils目录地下工具类 一些常用工具
 
