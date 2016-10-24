@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mingxiu.library.R;
-import com.mingxiu.library.base.baseAdapter.LvBaseAdapter;
+import com.mingxiu.library.base.baseAdapter.LvKnifeAdapter;
 import com.mingxiu.library.bean.PopuItemBean;
 
 import java.util.List;
@@ -41,7 +41,7 @@ import java.util.List;
  * 修订历史：1.0
  * 描述：PopupWindowUtils 底部弹出框的ListView的适配器
  */
-public class PopuBottomAdapter extends LvBaseAdapter<PopuItemBean, PopuBottomAdapter.ViewHolder> {
+public class PopuBottomAdapter extends LvKnifeAdapter<PopuItemBean, PopuBottomAdapter.ViewHolder> {
 
 
     public PopuBottomAdapter(List<PopuItemBean> data, Context context) {

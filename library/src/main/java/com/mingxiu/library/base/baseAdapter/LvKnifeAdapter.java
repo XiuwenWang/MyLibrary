@@ -36,10 +36,10 @@ import java.util.List;
  * 创建时间：2016/9/1
  * Email：13872829574@qq.com
  * 修订历史：1.0
- * 描述：封装的一个可以用黄油到的 LvBaseAdapter 子类必须实现三个抽象方法
+ * 描述：封装的一个可以用黄油到的 LvKnifeAdapter 子类必须实现三个抽象方法
  */
 
-public abstract class LvBaseAdapter<T, V> extends BaseAdapter {
+public abstract class LvKnifeAdapter<T, V> extends BaseAdapter {
     protected List<T> data;
     protected Context context;
     protected AdapterBean mAdapterBean;
@@ -48,7 +48,7 @@ public abstract class LvBaseAdapter<T, V> extends BaseAdapter {
         return mAdapterBean;
     }
 
-    public LvBaseAdapter(List<T> data, Context context) {
+    public LvKnifeAdapter(List<T> data, Context context) {
         this.data = data;
         this.context = context;
         this.mAdapterBean = new AdapterBean();

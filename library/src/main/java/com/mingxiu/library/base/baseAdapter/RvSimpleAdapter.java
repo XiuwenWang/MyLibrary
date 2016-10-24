@@ -42,11 +42,11 @@ import java.util.List;
  * 修订历史：1.0
  * 描述：RecyclerView.Adapter 优化 封装
  */
-public abstract class RvAdapter<T> extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
+public abstract class RvSimpleAdapter<T> extends RecyclerView.Adapter<RvSimpleAdapter.ViewHolder> {
     public List<T> data;
     public Context context;
 
-    public RvAdapter(List<T> data, Context context) {
+    public RvSimpleAdapter(List<T> data, Context context) {
         this.data = data;
         this.context = context;
     }
@@ -100,31 +100,31 @@ public abstract class RvAdapter<T> extends RecyclerView.Adapter<RvAdapter.ViewHo
             return (T) view;
         }
 
-        public RvAdapter.ViewHolder setText(int id, String txt) {
+        public RvSimpleAdapter.ViewHolder setText(int id, String txt) {
             TextView tv = findById(id);
             tv.setText(txt);
             return this;
         }
 
-        public RvAdapter.ViewHolder setOnClickListener(int id, View.OnClickListener listener) {
+        public RvSimpleAdapter.ViewHolder setOnClickListener(int id, View.OnClickListener listener) {
             View view = findById(id);
             view.setOnClickListener(listener);
             return this;
         }
 
-        public RvAdapter.ViewHolder setTvBackground(int id, Drawable txt) {
+        public RvSimpleAdapter.ViewHolder setTvBackground(int id, Drawable txt) {
             TextView tv = findById(id);
             tv.setBackgroundDrawable(txt);
             return this;
         }
 
-        public RvAdapter.ViewHolder setImage(int id, String url) {
+        public RvSimpleAdapter.ViewHolder setImage(int id, String url) {
             ImageView img = findById(id);
             ImageLoader.getInstance().displayCircleImage(context, url, img);
             return this;
         }
 
-        public RvAdapter.ViewHolder setImage(int id, int url) {
+        public RvSimpleAdapter.ViewHolder setImage(int id, int url) {
             ImageView img = findById(id);
             ImageLoader.getInstance().displayCircleImage(context, url, img);
             return this;

@@ -8,9 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.mingxiu.library.utils.AppManager;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * ----------BigGod be here!----------/
  * ***┏┓******┏┓*********
@@ -49,11 +46,6 @@ public class BaseActivity extends AppCompatActivity {
 
     //获取Intent
     protected void handleIntent(Intent intent) {
-    }
-
-
-    protected <T extends List> T getData(){
-        return (T) new ArrayList();
     }
 
     @Override

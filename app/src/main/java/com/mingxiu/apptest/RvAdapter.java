@@ -3,6 +3,8 @@ package com.mingxiu.apptest;
 import android.content.Context;
 import android.view.View;
 
+import com.mingxiu.library.base.baseAdapter.RvSimpleAdapter;
+
 import java.util.List;
 
 /**
@@ -37,9 +39,9 @@ import java.util.List;
  * 修订历史：1.0
  */
 
-public class RvAdapterT extends com.mingxiu.library.base.baseAdapter.RvAdapter<String> {
+public class RvAdapter extends RvSimpleAdapter<String> {
 
-    public RvAdapterT(List<String> data, Context context) {
+    public RvAdapter(List<String> data, Context context) {
         super(data, context);
     }
 
@@ -49,7 +51,7 @@ public class RvAdapterT extends com.mingxiu.library.base.baseAdapter.RvAdapter<S
     }
 
     @Override
-    public void onBindViewHolder(com.mingxiu.library.base.baseAdapter.RvAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(RvSimpleAdapter.ViewHolder holder, final int position) {
         holder.setText(R.id.T_1, data.get(position))
                 .setText(R.id.T_1, data.get(position))
                 .setImage(R.id.I_1, data.get(position))

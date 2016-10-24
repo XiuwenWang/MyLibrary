@@ -22,11 +22,11 @@ import java.util.List;
  * 修订历史：1.0
  * 描述：封装的一个简单易用的ApBaseAdapter
  */
-public abstract class AppBaseAdapter<T> extends BaseAdapter {
+public abstract class LvSimpleAdapter<T> extends BaseAdapter {
     protected List<T> data;
     protected Context context;
 
-    public AppBaseAdapter(List<T> data, Context context) {
+    public LvSimpleAdapter(List<T> data, Context context) {
         this.data = data;
         this.context = context;
     }

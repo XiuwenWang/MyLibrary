@@ -38,7 +38,7 @@ import java.util.List;
  * 修订历史：1.0
  * 描述：
  */
-public abstract class RvBaseAdapter<T, V extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<V> {
+public abstract class RvKnifeAdapter<T, V extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<V> {
 
     public List<T> data;
     public Context context;
@@ -47,7 +47,7 @@ public abstract class RvBaseAdapter<T, V extends RecyclerView.ViewHolder> extend
     public AdapterBean getAdapterBean() {
         return mAdapterBean;
     }
-    public RvBaseAdapter(List<T> data, Context context) {
+    public RvKnifeAdapter(List<T> data, Context context) {
         this.data = data;
         this.context = context;
         this.mAdapterBean = new AdapterBean();

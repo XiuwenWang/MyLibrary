@@ -15,11 +15,11 @@ import java.util.List;
  * 修订历史：1.0
  * 描述：简单封装的WenAdapter
  */
-public abstract class LvAdapter<T> extends BaseAdapter {
+public abstract class MxBaseAdapter<T> extends BaseAdapter {
     protected List<T> data;
     protected Context context;
 
-    public LvAdapter(List<T> data, Context context) {
+    public MxBaseAdapter(List<T> data, Context context) {
         this.data = data;
         this.context = context;
     }
