@@ -50,6 +50,7 @@ public class BaseApp extends MultiDexApplication {
         builder.setDebug(isLog);
         builder.setTimeout(1000 * 5);
         OkHttpFinal.getInstance().init(builder.build());
+
     }
 
 
