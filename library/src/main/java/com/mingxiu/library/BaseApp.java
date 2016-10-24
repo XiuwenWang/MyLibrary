@@ -33,29 +33,6 @@ public class BaseApp extends MultiDexApplication {
         isDebug = debug;
     }
 
-    //    {
-//
-//        //微信 appid appsecret
-//        PlatformConfig.setWeixin("wx71263d2be20656a6", "cce496157ea86b0f0adc821def437e42");
-//        //新浪微博 appkey appsecret
-//        PlatformConfig.setSinaWeibo("4121936918", "36e282e15ef09a52354ad9a98a64589f");
-//        //新浪微博回调
-//        Config.REDIRECT_URL = "http://www.paralworld.com";
-//        // QQ和Qzone appid appkey 借用平行世界的key和serket
-//        PlatformConfig.setQQZone("101261101", "ba72876b33f7df70e2e12ea80d3a4240");
-//
-//    }
-//
-//    /**
-//     * 极光推送
-//     */
-//    private void initJPush() {
-//        LogUtils.d("极光推送初始化");
-//        JPushInterface.setDebugMode(isDebug);
-//        JPushInterface.init(this);
-//    }
-
-
     @Override
     public void onCreate() {
         super.onCreate();

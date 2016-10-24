@@ -61,8 +61,6 @@ public class MainActivity extends BaseActivity {
 //        mAdapter = new RvBaseAdapterT(data, this);
 //        mRecyclerView.setAdapter(mAdapter);
 //        mAdapter.notifyDataSetChanged();
-
-
     }
 
     @Override
