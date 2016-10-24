@@ -1,6 +1,6 @@
 # library
 - 网络请求操作类 MxHttpRequest
-> get请求，post请求，文件下载等等
+<br>> get请求，post请求，文件下载等等
 ```
  Params params = new Params();
         params.add("key","value");
@@ -18,7 +18,7 @@
         });
  ```
  - 图片加载工具类 ImageLoader
- > 基于Glide 实现的，实现加载圆形图片等
+ <br>> 基于Glide 实现的，实现加载圆形图片等
  ```
  //加载普通图片
  ImageLoader.getInstance().displayImage("context上下文","图片链接url",imgageView);
