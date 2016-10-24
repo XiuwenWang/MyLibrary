@@ -1,7 +1,8 @@
 ![工匠精神](smartisan.png)
 # library
 ***
-###- 网络请求操作类 MxHttpRequest get请求，post请求，文件下载等等
+### - 网络请求操作类 MxHttpRequest get请求，post请求，文件下载等等
+ 
 ```
  Params params = new Params();
         params.add("key","value");
@@ -29,8 +30,8 @@
  ```
 
  - ###BaseAdapter 封装一些常用的 Adapter
-   1.  RecyclerView.Adapter 封装的
-   - ####RvSimpleAdapter 使用方法
+  #### 1.  RecyclerView.Adapter 封装的
+     - RvSimpleAdapter 使用方法
    ```
    public class RvAdapter extends RvSimpleAdapter<String> {
 
@@ -59,7 +60,7 @@
    }
 
    ```
-   - ####RvKnifeAdapter 使用方法
+  - RvKnifeAdapter 使用方法
    ```
    public class RvAdapter extends RvKnifeAdapter<String, RvKnifeAdapter.ViewHolder> {
 
@@ -97,7 +98,7 @@
        }
    }
    ```
-   2.  BaseAdapter 封装的
+   ####2.  BaseAdapter 封装的
    使用方法类似RecyclerView.Adapter上面的
 
  - ###picker 模仿ios 的省市县三级联动
@@ -106,7 +107,6 @@
              @Override
              public void onFinish(String address) {
                  LogUtils.d("返回的地址字符串");
-
              }
          }).execute();
  ```
