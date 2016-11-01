@@ -38,6 +38,8 @@ import com.mingxiu.library.utils.AppManager;
  */
 public class BaseActivity extends AppCompatActivity {
 
+
+
     private static BaseActivity baseAct;
 
     public static BaseActivity getInstance() {
@@ -98,6 +100,18 @@ public class BaseActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         finish();
         startActivity(intent);
+
+    }
+    /**
+     * 重启activity
+     */
+    public void reload() {
+        Intent intent = getIntent();
+        overridePendingTransition(0, 0);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(intent);
     }
 
 
@@ -116,7 +130,6 @@ public class BaseActivity extends AppCompatActivity {
     protected  void setAbsListView(){
 
     }
-
 
     /**
      * 初始化控件

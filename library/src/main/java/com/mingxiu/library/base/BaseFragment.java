@@ -36,7 +36,7 @@ import android.view.ViewGroup;
  * 描述：
  */
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
     protected static final String ARG_PARAM1 = "param1";
     protected static final String ARG_PARAM2 = "param2";
@@ -47,6 +47,7 @@ public class BaseFragment extends Fragment {
 
     public BaseFragment() {
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,9 +66,12 @@ public class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return null;
+        View inflate = LayoutInflater.from(getContext()).inflate(getLayoutID(), null);
+
+        return inflate;
     }
 
+    protected abstract int getLayoutID();
 
 
     public void init() {

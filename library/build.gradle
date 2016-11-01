@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 apply plugin: 'android-apt'
 android {
-    compileSdkVersion 24
+    compileSdkVersion 23
     buildToolsVersion "24.0.2"
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 24
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -30,11 +30,12 @@ buildscript {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:design:23.1.0'
     testCompile 'junit:junit:4.12'
     //黄油刀
     compile 'com.jakewharton:butterknife:8.2.1'
@@ -50,4 +51,14 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23+'
     //multidex
     compile 'com.android.support:multidex:1.0.1'
+
+    //
+    compile 'io.reactivex:rxandroid:1.2.1'//因为RxAndroid发布很少和很远，建议你也显式依赖于RxJava最新版本的错误修复和新功能。
+    compile 'io.reactivex:rxjava:1.1.6'
+
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
+
+    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
 }
