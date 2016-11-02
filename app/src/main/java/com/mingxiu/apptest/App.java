@@ -1,6 +1,7 @@
 package com.mingxiu.apptest;
 
 import com.apkfuns.logutils.LogUtils;
+import com.mingxiu.apptest.base.util.SpUtil;
 import com.mingxiu.library.BaseApp;
 
 /**
@@ -40,8 +41,8 @@ public class App extends BaseApp {
     @Override
     public void onCreate() {
         super.onCreate();
-        configOkHttpFinal(false);
+//        configOkHttpFinal(false);
+        SpUtil.init(this);
         LogUtils.d("------>");
-
     }
 }

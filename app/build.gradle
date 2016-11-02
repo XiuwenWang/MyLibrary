@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'android-apt'
 apply from: "../channels.gradle"//将channels.gradle下载到本地引入
 
@@ -27,16 +28,20 @@ android {
             shrinkResources true             //移除无用的资源文件
             multiDexEnabled true             //启用multidex的支持
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'//指定混淆规则，需要压缩优化的混淆要把proguard-android.txt换成proguard-android.txt
-            signingConfig signingConfigs.release            //指定打release包的签名
+//            signingConfig signingConfigs.release            //指定打release包的签名
         }
         debug { //调试
             minifyEnabled false              //启用混淆代码的功能
 //            zipAlignEnabled true             //压缩对齐生成的apk包
 //            shrinkResources true             //移除无用的资源文件
             multiDexEnabled true             //启用multidex的支持
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'//指定混淆规则，需要压缩优化的混淆要把proguard-android.txt换成proguard-android.txt
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            signingConfig signingConfigs.release            //指定打release包的签名
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -47,6 +52,7 @@ buildscript {
     dependencies {
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
+
 }
 
 dependencies {
@@ -56,8 +62,30 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile project(':library')
-//    //黄油刀
-//    compile 'com.jakewharton:butterknife:8.2.1'
-//    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    //黄油刀
+    compile 'com.jakewharton:butterknife:8.2.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+
+
+
+
+
+//    //以下SDK开发者请根据需要自行选择
+//    //bmob-sdk：Bmob的android sdk包，包含了Bmob的数据存储、文件等服务，以下是最新的bmob-sdk:
+//    //3.5.0：请务必查看下面注释[1]
+//    compile 'cn.bmob.android:bmob-sdk:3.5.0'
+//
+//    //bmob-push：Bmob的推送包
+//    compile 'cn.bmob.android:bmob-push:0.8'
+//
+//    //bmob-im：Bmob的即时通讯包，注意每个版本的im依赖特定版本的bmob-sdk，具体的依赖关系可查看下面注释[2]
+//    compile 'cn.bmob.android:bmob-im:2.0.5@aar'
+//    compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'
+//
+////    //bmob-sms ：Bmob单独为短信服务提供的包
+////    compile 'cn.bmob.android:bmob-sms:1.0.1'
+//
+//    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
+//    compile 'cn.bmob.android:http-legacy:1.0'
 
 }
