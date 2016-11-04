@@ -7,6 +7,9 @@ import android.widget.FrameLayout;
 import com.mingxiu.apptest.App;
 import com.mingxiu.apptest.R;
 import com.mingxiu.apptest.fragment.Fragment_1;
+import com.mingxiu.apptest.fragment.Fragment_2;
+import com.mingxiu.apptest.fragment.Fragment_3;
+import com.mingxiu.apptest.fragment.Fragment_4;
 import com.mingxiu.library.base.BaseActivity;
 import com.mingxiu.library.tablayout.CommonTabLayout;
 import com.mingxiu.library.tablayout.listener.CustomTabEntity;
@@ -51,10 +54,12 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @Override
     public void AddFragment(ArrayList<CustomTabEntity> data) {
-        for (int i = 0; i < data.size(); i++) {
-            mFragments2.add(Fragment_1.newInstance(data.get(i).getTabTitle().toString(),""));
-        }
+            mFragments2.add(Fragment_1.newInstance(data.get(0).getTabTitle().toString(),""));
+            mFragments2.add(Fragment_2.newInstance(data.get(1).getTabTitle().toString(),""));
+            mFragments2.add(Fragment_3.newInstance(data.get(2).getTabTitle().toString(),""));
+            mFragments2.add(Fragment_4.newInstance(data.get(3).getTabTitle().toString(),""));
     }
+
 
     @Override
     public void initCommonTabLayout(ArrayList<CustomTabEntity> data) {

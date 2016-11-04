@@ -1,5 +1,7 @@
 package com.mingxiu.apptest.fragment;
 
+import android.os.Bundle;
+
 import com.mingxiu.apptest.R;
 import com.mingxiu.library.base.BaseFragment;
 
@@ -40,5 +42,14 @@ public class Fragment_4 extends BaseFragment {
     @Override
     protected int getLayoutID() {
         return R.layout.fragment_main;
+    }
+
+    public static Fragment_4 newInstance(String mParam1, String mParam2) {
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, mParam1);
+        args.putString(ARG_PARAM2, mParam2);
+        Fragment_4 fragment = new Fragment_4();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

@@ -46,8 +46,18 @@ public class CommentItemVH extends BaseViewHolder<CommentInfoRepository> {
         mTvContent.setText(mSubject.data.content);
         ImageUtil.loadRoundImg(mImUser, mSubject.data.creater.face);
         mImUser.setOnClickListener(v ->
-                ActivityCompat.startActivity((Activity) mContext, new Intent(mContext, UserActivity.class).putExtra(Contact.HEAD_DATA, mSubject.data.creater)
-                        , ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) mContext, mImUser, ArticleActivity.TRANSLATE_VIEW).toBundle())
+                ActivityCompat.startActivity(
+                        (Activity) mContext,
+                        new Intent(mContext,
+                                UserActivity.class
+                        ).putExtra(Contact.HEAD_DATA, mSubject.data.creater),
+
+                        ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                (Activity) mContext,
+                                mImUser,
+                                ArticleActivity.TRANSLATE_VIEW
+                        ).toBundle()
+                )
         );
     }
 }

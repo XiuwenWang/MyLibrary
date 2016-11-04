@@ -1,6 +1,7 @@
 package com.mingxiu.apptest;
 
 import com.apkfuns.logutils.LogUtils;
+import com.hyphenate.easeui.controller.EaseUI;
 import com.mingxiu.apptest.base.util.SpUtil;
 import com.mingxiu.library.BaseApp;
 
@@ -35,7 +36,6 @@ import com.mingxiu.library.BaseApp;
  * 修改备注：
  * 修订历史：1.0
  */
-
 public class App extends BaseApp {
 
     @Override
@@ -44,5 +44,14 @@ public class App extends BaseApp {
 //        configOkHttpFinal(false);
         SpUtil.init(this);
         LogUtils.d("------>");
+        initEaseUI();
+    }
+
+    private void initEaseUI() {
+        if(EaseUI.getInstance().init(this, null)){
+            LogUtils.d("EaseUI 初始化成功 ~");
+        }else {
+            LogUtils.d("EaseUI 初始化失败 ~");
+        }
     }
 }

@@ -77,11 +77,6 @@ public class Fragment_1 extends BaseFragment {
     public void setUpView() {
         super.setUpView();
         mMainTvText.setText(mParam1);
-        mMainTvText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((MainActivity)getActivity()).mMainPresenter.showTitle(mParam1);
-            }
-        });
+        mMainTvText.setOnClickListener(hh -> ((MainActivity) getActivity()).mMainPresenter.showTitle(mParam1));
     }
 }
